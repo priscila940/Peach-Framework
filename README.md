@@ -9,5 +9,4 @@ For **manual mapped DLLs** it creates problems because **C++ operators** and **C
 ImGui also creates **font atlas textures** and leaves **byte patterns** in memory, combined with the **CRT** makes it a deadly detection for **Anti-Cheats**. <br />
 
 This framework **requires** you to either **hijack or create your own Swapchain**. <br />
-Here is the **interface** I created using Peach: <br />
 <img width="1751" height="1274" alt="image" src="https://github.com/user-attachments/assets/3b738449-607f-4bfd-9b89-a5f8b54e1ea2" />
