@@ -17,11 +17,12 @@ jobs:
       uses: microsoft/setup-msbuild@v2
 
     - name: Compilar e definir o nome do EXE
-      run: msbuild divinity-menu.vcxproj /p:Configuration=Release /p:Platform=x64 /p:TargetName=O_Nome_Que_Você_Quiser
+      run: msbuild divinity-menu.vcxproj /p:Configuration=Release /p:Platform=x64 /p:TargetName=SeuMenuAqui
 
     - name: Salvar o arquivo .EXE
       uses: actions/upload-artifact@v4
       with:
         name: Executavel-Pronto
         path: |
-          **/Release/*.exe
+          **/*.exe
+          **/*.dll
