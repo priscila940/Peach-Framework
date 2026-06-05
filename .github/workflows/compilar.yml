@@ -1,4 +1,4 @@
-name: Gerar Executável (.EXE)
+name: Gerar Executável (.exe)
 
 on:
   push:
@@ -16,13 +16,14 @@ jobs:
     - name: Configurar o MSBuild
       uses: microsoft/setup-msbuild@v2
 
-    - name: Compilar e definir o nome do EXE
-      run: msbuild divinity-menu.vcxproj /p:Configuration=Release /p:Platform=x64 /p:TargetName=SeuMenuAqui
+    - name: Compilar Forçando exe
+      run: msbuild divinity-menu.vcxproj /p:Configuration=Release /p:Platform=x64 /p:OutputType=exe /p:ConfigurationType=Application /p:TargetName=seumenuhere
 
-    - name: Salvar o arquivo .EXE
+    - name: Salvar Todos os Arquivos Gerados
       uses: actions/upload-artifact@v4
       with:
-        name: Executavel-Pronto
+        name: executavel-pronto
         path: |
           **/*.exe
           **/*.dll
+          **/*.lib
