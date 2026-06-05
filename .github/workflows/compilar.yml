@@ -1,0 +1,28 @@
+name: Gerar Executável (.EXE)
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Baixar o Código
+      uses: actions/checkout@v4
+
+    - name: Configurar o MSBuild
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Compilar o Projeto
+      run: msbuild divinity-menu.vcxproj /p:Configuration=Release /p:Platform=x64
+
+    - name: Salvar o arquivo .EXE
+      uses: actions/upload-artifact@v4
+      with:
+        name: Executavel-Pronto
+        path: |
+          **/Release/*.exe
+          **/Release/*.dll
